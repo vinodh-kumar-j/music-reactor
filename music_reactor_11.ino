@@ -36,7 +36,7 @@ void setup() {
     Serial.println("Error initializing ESP-NOW");
     return;
   }
-
+  
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
   esp_now_register_send_cb(OnDataSent);
@@ -71,3 +71,16 @@ void loop() {
   }
   delay(2000);
 }
+
+/*void loop() {
+  myData = {"THIS IS A CHAR", random(1, 20), 1.2, false};
+  
+  if (esp_now_send(broadcastAddress, (uint8_t *)&myData, sizeof(myData)) == ESP_OK) {
+    Serial.println("Sent with success");
+  } else {
+    Serial.println("Error sending the data");
+  }
+  
+  delay(2000);
+}
+*/
